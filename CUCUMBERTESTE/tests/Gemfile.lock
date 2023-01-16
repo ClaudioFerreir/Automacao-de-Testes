@@ -52,8 +52,8 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  cucumber
-  rspec
+  cucumber (~> 8.0)
+  rspec (~> 3.12)
 
 BUNDLED WITH
    2.3.5
