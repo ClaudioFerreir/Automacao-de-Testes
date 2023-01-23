@@ -36,5 +36,25 @@ Quando('eu entro na janela e verifico a mensagem') do
 end
 
 Quando('eu entro no alert e verifico faco a acao') do
+  visit '/mudancadefoco/alert'
+  #alert simples somente
+  find('button[onclick="jsAlert()"]').click
+  sleep(2)
+  page.accept_alert
+  sleep(2)
+
+  #alert confimar ou cancelar
+  find('button[onclick="jsConfirm()"]').click
+  sleep(2)
+  page.dismiss_confirm #para aceitar e o 'accept_confirm' e nao o 'dismiss_confirm'
+  sleep(2)
   
+  #prompt com espaco para inserir dados 
+  find('button[onclick="jsPrompt()"]').click
+  sleep(2)
+  page.accept_prompt(with: 'Claudio Ferreira') #aceita o prompt e preenche com o que desejamos
+  #esta opcao abaixo cancela o prompt
+  #page.dismiss_prompt 
+
+  sleep(2)
 end
