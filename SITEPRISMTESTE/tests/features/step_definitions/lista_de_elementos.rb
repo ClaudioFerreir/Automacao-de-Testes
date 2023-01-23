@@ -11,7 +11,4 @@ Quando('mapeio uma tabela.') do
   @lista_de_elementos.lista.each do |element|
     puts element.text
   end
-
-
-
 end
