@@ -5,7 +5,7 @@ Quando('eu faco cadastro') do
   @userpage.preencher
   @userpage.cadastrar
   
-   sleep(5)
+   sleep(2)
 end
 
 Entao('verifico se fui cadastrado') do

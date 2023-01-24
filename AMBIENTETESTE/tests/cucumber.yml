@@ -1,7 +1,7 @@
 ---
 
 #abaixo podemos passar um parametro de homolog ou producao
-default: --profile progress -p homolog
+default: --profile progress -p homolog -p chrome
 html_report: --format progress --format html --out=features_report.html #outro profile que especificamos e podemos passar com a opcao ex. bundle exec cucumber --profile html_report -t @cadastrar_usuario
 
 pretty: --format pretty
@@ -9,3 +9,8 @@ progress: --format progress
 homolog: AMBIENTE=homolog
 producao: AMBIENTE=producao
 
+chrome: BROWSER=chrome
+firefox: BROWSER=firefox
+safari: BROWSER=safari
+ie: BROWSER=ie
+poltergeist: BROWSER=poltergeist
