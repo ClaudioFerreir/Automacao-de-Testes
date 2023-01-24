@@ -1,0 +1,3 @@
+url_padrao: 'http://localhost:3000'
+
+#aqui podemos ter varias variaveis especificas para este ambiente ex. user: 'joao'
