@@ -13,17 +13,16 @@ CONFIG = YAML.load_file(File.dirname(__FILE__) +  "/ambientes/#{AMBIENTE}.yml") 
 # Configura o tipo de browser
 Capybara.register_driver :selenium do |app|
   if BROWSER.eql?('chrome')
-    #Capybara::Selenium::Driver.new(app, :browser => :chrome)
-    option = ::Selenium::WebDriver::Chrome::Options.new(
-      args: ['--start-fullscreen', '--disable-infobars']
-    )
+    option = ::Selenium::WebDriver::Chrome::Options.new(args: ['--disable-infobars', 'window-size=1600,1024'])
+    Capybara::Selenium::Driver.new(app, browser: :chrome, options: option)
+  elsif BROWSER.eql?('chrome_headless')
+    option = ::Selenium::WebDriver::Chrome::Options.new(args: ['--headless', '--disable-gpu', '--no-sandbox', '--window-size=1600,1024'])
     Capybara::Selenium::Driver.new(app, browser: :chrome, options: option)
   elsif BROWSER.eql?('firefox')
-    Capybara::Selenium::Driver.new(
-      app, browser: :firefox,
-           desired_capabilities: Selenium::WebDriver::Remote::Capabilities
-        .firefox(marionette: true)
-    )
+    Capybara::Selenium::Driver.new(app, browser: :firefox, marionette: true)
+  elsif BROWSER.eql?('firefox_headless')
+    option = ::Selenium::WebDriver::Firefox::Options.new(args: ['--headless'])
+    Capybara::Selenium::Driver.new(app, browser: :firefox, options: option)
     
   #outras opcoes de browsers
   #elsif BROWSER.eql?('ie')
