@@ -1,7 +1,7 @@
 ---
 
 #abaixo podemos passar um parametro de homolog ou producao
-default: --profile progress -p homolog -p chrome_headless
+default: --profile progress -p homolog -p chrome -p html
 html_report: --format progress --format html --out=features_report.html #outro profile que especificamos e podemos passar com a opcao ex. bundle exec cucumber --profile html_report -t @cadastrar_usuario
 
 pretty: --format pretty
@@ -16,3 +16,5 @@ firefox_headless: BROWSER=firefox_headless
 #safari: BROWSER=safari
 #ie: BROWSER=ie
 #poltergeist: BROWSER=poltergeist
+
+html: --format html --out=reports/relatorio.html

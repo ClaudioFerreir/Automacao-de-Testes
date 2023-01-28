@@ -2,6 +2,7 @@ require 'capybara'
 require 'capybara/cucumber'
 require 'selenium-webdriver'
 require 'site_prism'
+require_relative 'helper.rb'
 
 # Variavel para o nome do ambiente
 BROWSER = ENV['BROWSER']
@@ -9,6 +10,8 @@ BROWSER = ENV['BROWSER']
 AMBIENTE = ENV['AMBIENTE'] #pode ser passado atraves do cucumber.yml um valor de homolog ou producao 
 # Configuracao para dizer o caminho do ambiente a se usar
 CONFIG = YAML.load_file(File.dirname(__FILE__) +  "/ambientes/#{AMBIENTE}.yml") #carrega o arquivo homolog.yml ou producao a depender do valor passado
+
+World(Helper)
 
 # Configura o tipo de browser
 Capybara.register_driver :selenium do |app|
